@@ -9,4 +9,4 @@ handlers:
 
 libraries:
 - name: webapp2
-  version: latest  
+  version: latest
