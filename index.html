@@ -21,8 +21,20 @@
   </head>
 
   <body>
-
-    <!-- TODO: partial to show reviews? -->
+   
+  {% for review in reviews %}
+      {% if review.author %}
+        <b>{{ review.author }}
+          {% if user and user.user_id() == review.author.identity %}
+            (You)
+          {% endif %}
+        </b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ review.content }}</blockquote>
+    {% endfor %}
+   
 
     <form action="/sign?session_name={{ session_name }}" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
